@@ -1,32 +1,51 @@
-# Bushbuckridge Mall — Self-Hosted Static Clone
+# Bushbuckridge Mall — Modern Website
 
-A self-hosted static clone of <https://bushbuckridgemall.co.za/>, built from the
-live site's rendered HTML.
+A modern redesign of the Bushbuckridge Mall website, built as a fast, fully
+static site. It keeps the mall's established brand — gold `#fea900`, deep navy
+`#071543`, the official logo and real mall photography — and wraps it in a
+contemporary design with rich animation.
 
-## What's here
+## Pages
 
-| Path | Contents |
-|------|----------|
-| `*.html` (66 files) | One static page per route (home, about, directory, contact, events, and each store's page) |
-| `wp-content/` | Theme/plugin CSS, uploaded images, PDFs (mirrored at original paths) |
-| `wp-includes/` | WordPress CSS assets |
-| `fonts.googleapis.com/`, `fonts.gstatic.com/` | Self-hosted Google Fonts |
+| Page | Purpose |
+|------|---------|
+| `index.html` | Full-screen hero, trust-brand marquee, animated stats, category cards, World Cup 2026 event feature, exhibition CTA, hours + map |
+| `about.html` | Mall story, vision/community/sustainability, leadership (Centre Manager & leasing), photo gallery |
+| `stores.html` | Live store directory — 63 stores with search + category filters, shop numbers, phone numbers and hours |
+| `exhibition.html` | Activations & exhibitions pitch, 3-step booking process, application form PDF |
+| `retail-application.html` | Leasing pitch + online application form (mailto handoff) + official PDF form |
+| `contact-us.html` | Contact cards, message form, trading hours, Google Maps embed |
 
-## How it was built
+## Features
 
-1. Fetched full rendered HTML for all 66 routes directly from the live site.
-2. Downloaded every self-hosted asset (CSS, images, fonts, PDFs) referenced
-   across the pages, recursing into CSS `url()`/`@import`.
-3. Stripped `<script>` tags (WordPress/Elementor runtime, GTM/GA, reCAPTCHA)
-   and dead WordPress endpoint `<link>`s (RSS/oEmbed/REST/RSD/xmlrpc); the
-   rendered layout doesn't depend on JS.
-4. Rewrote every self-hosted asset reference and internal navigation link to
-   the local `.html` files.
+- **James** — an AI-styled chat assistant (rule-based, runs fully in the
+  browser). Answers store lookups ("Where is Pick n Pay?" → Shop 43 + phone),
+  trading hours, directions, leasing and exhibition queries with quick-reply
+  chips and typing animation. Available on every page.
+- **Animations** — Ken Burns hero, scroll-reveal with stagger, animated stat
+  counters, seamless brand-logo marquee, hover lifts, floating cards. All
+  respect `prefers-reduced-motion`.
+- **Real store data** — `assets/js/stores-data.js` holds all 63 stores
+  (name, category, shop number, phone, hours, logo, website) scraped from the
+  original site and shared by the directory and the chatbot.
+- **Self-hosted fonts** — Sora (display) + Inter (body) woff2 in
+  `assets/fonts/`; no external font requests.
+- **Original assets kept** — store logos, mall photography and application
+  PDFs live at their original paths under `wp-content/uploads/`.
 
-1908 of 1910 local references resolve (the 2 that don't are a `whatsapp://`
-share link and a same-page `#respond` anchor — neither is a missing asset).
+## Structure
 
-## Viewing
+```
+index.html … contact-us.html   the six pages
+assets/css/main.css            design system (tokens, components, animations)
+assets/css/fonts.css           @font-face for self-hosted Sora + Inter
+assets/js/main.js              header, nav, reveal/counter/marquee animations, forms
+assets/js/james.js             James chat assistant
+assets/js/stores-data.js       store directory data (generated from the scrape)
+wp-content/uploads/            logos, photos, PDFs from the original site
+```
 
-Open any `.html` file directly in a browser, e.g. `index.html`. No web
-server is required — all asset references are document-relative.
+No build step — open `index.html` or serve the folder with any static host.
+
+> The previous 1:1 static clone of the old WordPress site is preserved in git
+> history (commit `1fdf33e`).

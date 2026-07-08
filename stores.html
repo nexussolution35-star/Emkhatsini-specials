@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Store Directory — Bushbuckridge Mall</title>
+<meta name="description" content="Browse all 60+ stores and services at Bushbuckridge Mall — groceries, fashion, banking, restaurants, health and more.">
+<link rel="icon" href="wp-content/uploads/2023/11/cropped-bushbuckridge_mall-icon-2-2-32x32.png">
+<link rel="stylesheet" href="assets/css/fonts.css">
+<link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html">
+      <span class="brand-chip"><img src="wp-content/uploads/2023/11/bushbuckridge_mall.png" alt="Bushbuckridge Mall"></span>
+    </a>
+    <nav class="main-nav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="stores.html" class="active">Stores</a>
+      <a href="exhibition.html">Exhibition</a>
+      <a href="retail-application.html">Retail store application</a>
+      <a href="contact-us.html" class="nav-cta">Contact Us</a>
+    </nav>
+    <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="hero-media"><img src="wp-content/uploads/2023/10/bushbuckridge-mall-shops-banner.png" alt="Bushbuckridge Mall stores"></div>
+  <div class="hero-scrim"></div>
+  <div class="wrap">
+    <span class="crumbs" data-hero="1">Home · Stores</span>
+    <h1 data-hero="2">Store directory</h1>
+    <p class="lead" data-hero="3">60+ stores and services — search by name or browse by category.</p>
+  </div>
+</section>
+
+<section style="padding-top:56px">
+  <div class="wrap">
+    <div class="searchbar" data-reveal>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.8-3.8"/></svg>
+      <input id="store-search" type="search" placeholder="Search stores… e.g. Pick n Pay, pharmacy, ATM" aria-label="Search stores">
+    </div>
+    <div class="filters" id="store-filters" data-reveal></div>
+    <p class="results-meta" id="results-meta"></p>
+    <div class="store-grid" id="store-grid"></div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="cta-band" data-reveal="zoom">
+      <div>
+        <h2>Don’t see your brand here yet?</h2>
+        <p>Prime retail space is available. Join South Africa’s most trusted retailers at the heart of Bushbuckridge.</p>
+      </div>
+      <div class="actions">
+        <a class="btn btn-navy" href="retail-application.html">Apply for retail space</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap footer-top">
+    <div class="footer-brand">
+      <img src="wp-content/uploads/2023/11/bushbuckridge_mall.png" alt="Bushbuckridge Mall">
+      <p>A proud landmark and vibrant shopping destination at the heart of the Bushbuckridge community.</p>
+      <span class="managed-badge">Managed by Jeqe Management</span>
+    </div>
+    <div>
+      <h4>Quicklinks</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="stores.html">Store directory</a></li>
+        <li><a href="exhibition.html">Exhibition</a></li>
+        <li><a href="retail-application.html">Retail store application</a></li>
+        <li><a href="contact-us.html">Contact us</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Trading hours</h4>
+      <ul>
+        <li>Mon – Fri: 08:00 – 17:00</li>
+        <li>Sat – Sun: 08:00 – 13:00</li>
+        <li>Holidays: 08:00 – 13:00</li>
+        <li style="color:var(--gold);font-weight:600;margin-top:6px">Pick n Pay &amp; Shoprite</li>
+        <li>Mon – Fri: 08:00 – 18:00</li>
+        <li>Weekends &amp; holidays: 08:00 – 17:00</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Get in touch</h4>
+      <ul>
+        <li>Cnr R40 &amp; R533, CBD,<br>Bushbuckridge, 1280</li>
+        <li>Centre Manager: <a href="tel:+27767470256">+27 76 747 0256</a></li>
+        <li><a href="mailto:Luckyt@jeqe.co.za">Luckyt@jeqe.co.za</a></li>
+        <li>Leasing: <a href="mailto:lizelle@jeqe.co.za">lizelle@jeqe.co.za</a></li>
+      </ul>
+      <div class="social" style="margin-top:20px">
+        <a href="https://web.facebook.com/bushbuckridgemall/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.3-1.5 1.6-1.5h1.7V3.6c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.1H7.4V13h2.7v8z"/></svg></a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="wrap">
+      <span>© 2026 Bushbuckridge Mall. All rights reserved.</span>
+      <span>Cnr R40 &amp; R533, Bushbuckridge CBD</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/stores-data.js"></script>
+<script>
+/* ---------- store directory rendering & filtering ---------- */
+(function () {
+  "use strict";
+  var STORES = window.BBM_STORES, CATS = window.BBM_CATS;
+  var grid = document.getElementById("store-grid");
+  var meta = document.getElementById("results-meta");
+  var filters = document.getElementById("store-filters");
+  var search = document.getElementById("store-search");
+  var activeCat = "all";
+
+  var params = new URLSearchParams(location.search);
+  if (params.get("cat") && CATS[params.get("cat")]) activeCat = params.get("cat");
+
+  var cats = [["all", "All stores"]].concat(Object.keys(CATS).map(function (k) { return [k, CATS[k]]; }));
+  cats.forEach(function (c) {
+    var b = document.createElement("button");
+    b.className = "chip" + (c[0] === activeCat ? " active" : "");
+    b.textContent = c[1];
+    b.dataset.cat = c[0];
+    b.addEventListener("click", function () {
+      activeCat = c[0];
+      filters.querySelectorAll(".chip").forEach(function (x) { x.classList.remove("active"); });
+      b.classList.add("active");
+      render();
+    });
+    filters.appendChild(b);
+  });
+
+  search.addEventListener("input", render);
+
+  function card(s) {
+    var d = document.createElement("article");
+    d.className = "store-card";
+    var metaBits = "";
+    if (s.shop) metaBits += "<span>📍 Shop " + s.shop + (s.entrance ? " · Entrance " + s.entrance : "") + "</span>";
+    if (s.phone) metaBits += '<span>📞 <a href="tel:' + s.phone.replace(/[^0-9+]/g, "") + '">' + s.phone + "</a></span>";
+    metaBits += "<span>🕗 " + s.hours + "</span>";
+    if (s.website) metaBits += '<span>🌐 <a href="' + s.website + '" target="_blank" rel="noopener">Visit website</a></span>';
+    d.innerHTML =
+      '<div class="store-logo"><img loading="lazy" src="' + s.logo + '" alt="' + s.name + ' logo"></div>' +
+      "<h3>" + s.name + "</h3>" +
+      '<div class="store-tags"><span class="tag">' + CATS[s.cat] + "</span></div>" +
+      '<div class="store-meta">' + metaBits + "</div>";
+    return d;
+  }
+
+  function render() {
+    var q = search.value.trim().toLowerCase();
+    grid.innerHTML = "";
+    var shown = 0;
+    STORES.forEach(function (s) {
+      if (activeCat !== "all" && s.cat !== activeCat) return;
+      if (q && s.name.toLowerCase().indexOf(q) === -1 && CATS[s.cat].toLowerCase().indexOf(q) === -1) return;
+      grid.appendChild(card(s));
+      shown++;
+    });
+    if (!shown) {
+      grid.innerHTML = '<div class="no-results"><strong>No stores found.</strong><br>Try a different search — or ask James, our assistant, in the bottom-right corner.</div>';
+    }
+    meta.textContent = "Showing " + shown + " of " + STORES.length + " stores" +
+      (activeCat !== "all" ? " in " + CATS[activeCat] : "") + (q ? ' matching "' + search.value.trim() + '"' : "");
+  }
+  render();
+})();
+</script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/james.js"></script>
+</body>
+</html>
