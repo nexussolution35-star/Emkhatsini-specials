@@ -605,6 +605,32 @@ section{padding:96px 0}
 .james-input button:hover{transform:scale(1.08);box-shadow:0 8px 20px rgba(254,169,0,.45)}
 .james-input button svg{width:19px;height:19px;fill:var(--navy)}
 
+/* ---------- apply online card ---------- */
+.btn-xl{padding:20px 34px;font-size:16.5px;width:100%;justify-content:center}
+.apply-card{position:relative;overflow:hidden;border-top:5px solid var(--gold)}
+.apply-card::after{
+  content:"";position:absolute;width:230px;height:230px;border-radius:50%;
+  background:radial-gradient(circle,rgba(254,169,0,.14),transparent 70%);
+  top:-90px;right:-70px;
+}
+.apply-card h3{font-size:24px;margin-bottom:6px}
+.apply-card>p{color:var(--muted);font-size:15px}
+.apply-list{list-style:none;margin:0 0 26px;padding:0;display:grid;gap:11px}
+.apply-list li{display:flex;gap:11px;align-items:flex-start;font-size:14.5px;color:var(--ink)}
+.apply-list svg{flex-shrink:0;width:18px;height:18px;margin-top:2px}
+.or-divider{
+  display:flex;align-items:center;gap:14px;margin:24px 0 18px;
+  font:600 12px/1 var(--font-display);letter-spacing:.18em;text-transform:uppercase;color:var(--muted);
+}
+.or-divider::before,.or-divider::after{content:"";flex:1;height:1px;background:var(--line)}
+.apply-note{font-size:13px;color:var(--muted);margin:14px 0 0}
+.portal-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  font:600 12px/1 var(--font-display);letter-spacing:.08em;text-transform:uppercase;
+  color:#166534;background:#eefaf0;border:1px solid #bfe8c8;padding:8px 13px;margin-bottom:16px;
+}
+.portal-badge::before{content:"";width:7px;height:7px;border-radius:50%;background:#31c25e}
+
 /* ---------- misc ---------- */
 .pdf-row{display:flex;gap:14px;flex-wrap:wrap}
 .back-note{font-size:14px;color:var(--muted)}

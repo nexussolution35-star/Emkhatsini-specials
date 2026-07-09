@@ -194,13 +194,13 @@
     /* leasing / rental */
     if (/leas|rent|retail space|open a (shop|store)|vacan|tenant/.test(q)) {
       botSay(
-        "Exciting! \u{1F3EA} For leasing and retail space, our leasing team would love to hear from you:<br><br><strong>Lizelle Cloete</strong> — <a href=\"mailto:lizelle@jeqe.co.za\">lizelle@jeqe.co.za</a><br><br>You can also apply online on the <a href=\"retail-application.html\">Retail store application</a> page, or download the official application form there."
+        "Exciting! \u{1F3EA} You can <a href=\"https://mallops.nexussolution.cloud/apply\" target=\"_blank\" rel=\"noopener\"><strong>apply for retail space online</strong></a> in about 10 minutes — the PDF form is available inside the portal too.<br><br>Questions first? Our leasing manager <strong>Lizelle Cloete</strong> is at <a href=\"mailto:lizelle@jeqe.co.za\">lizelle@jeqe.co.za</a>, and there’s more info on the <a href=\"retail-application.html\">Retail store application</a> page."
       );
       setChips(["Retail store application", "Exhibitions", "Talk to a human"]);
       return;
     }
     if (/retail store application/.test(q)) {
-      botSay('Head over to the <a href="retail-application.html">Retail store application</a> page — you can apply online in two minutes or download the official PDF form. \u{1F4DD}');
+      botSay('You can <a href="https://mallops.nexussolution.cloud/apply" target="_blank" rel="noopener"><strong>apply online here</strong></a> in about 10 minutes. \u{1F4DD} More details (and the PDF form) are on the <a href="retail-application.html">Retail store application</a> page.');
       setChips(defaultChips);
       return;
     }
@@ -208,7 +208,7 @@
     /* exhibition */
     if (/exhibit|activation|promot|stand|stall|market/.test(q)) {
       botSay(
-        "We host <strong>product activations, promotions and exhibitions</strong> in our high-traffic court areas. \u{1F3AA}<br><br>See the <a href=\"exhibition.html\">Exhibition page</a> for details and the application form, or email <a href=\"mailto:lizelle@jeqe.co.za\">lizelle@jeqe.co.za</a>."
+        "We host <strong>product activations, promotions and exhibitions</strong> in our high-traffic court areas. \u{1F3AA}<br><br>You can <a href=\"https://mallops.nexussolution.cloud/apply/exhibition\" target=\"_blank\" rel=\"noopener\"><strong>apply online here</strong></a> — the PDF form is inside the portal too. See the <a href=\"exhibition.html\">Exhibition page</a> for details, or email <a href=\"mailto:lizelle@jeqe.co.za\">lizelle@jeqe.co.za</a>."
       );
       setChips(["Leasing", "Trading hours", "Talk to a human"]);
       return;
