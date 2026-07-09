@@ -194,6 +194,33 @@ section{padding:96px 0}
 .page-hero p.lead{font-size:18px;color:rgba(255,255,255,.85);max-width:60ch;margin:0}
 .crumbs{font:600 13px/1 var(--font-display);letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:18px;display:block}
 
+/* ---------- parallax bands ---------- */
+.parallax-band{
+  position:relative;overflow:hidden;color:#fff;
+  padding:clamp(110px,14vw,170px) 0;text-align:center;
+}
+.plx-media{position:absolute;left:0;right:0;top:-28%;bottom:-28%;z-index:-2}
+.plx-media img{width:100%;height:100%;object-fit:cover;will-change:transform}
+.plx-scrim{
+  position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(100deg,rgba(7,21,67,.9) 0%,rgba(7,21,67,.62) 55%,rgba(7,21,67,.78) 100%);
+}
+.parallax-band h2{
+  color:#fff;font-size:clamp(30px,4.6vw,54px);font-weight:800;
+  letter-spacing:-.02em;max-width:22ch;margin:0 auto 16px;
+}
+.parallax-band h2 em{font-style:normal;color:var(--gold)}
+.parallax-band p{color:rgba(255,255,255,.86);max-width:62ch;margin:0 auto 32px;font-size:17px}
+.parallax-band .band-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.eyebrow.on-dark{background:rgba(254,169,0,.14);border-color:rgba(254,169,0,.42);color:var(--gold)}
+
+/* page heroes: parallax instead of ken burns */
+.page-hero .hero-media img{
+  animation:none;
+  position:absolute;left:0;top:-20%;width:100%;height:140%;
+  will-change:transform;
+}
+
 /* ---------- logo marquee (trust strip) ---------- */
 .trust{padding:34px 0;background:#fff;border-block:1px solid var(--line)}
 .trust-label{

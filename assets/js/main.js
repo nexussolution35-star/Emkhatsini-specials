@@ -71,6 +71,33 @@
     cio.observe(el);
   });
 
+  /* ---------- scroll parallax ---------- */
+  var plxEls = Array.prototype.slice.call(document.querySelectorAll("[data-parallax]"));
+  var reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (plxEls.length && !reducedMotion) {
+    var plxTick = false;
+    var updateParallax = function () {
+      plxTick = false;
+      plxEls.forEach(function (img) {
+        var box = img.closest(".parallax-band, .page-hero") || img.parentElement;
+        var r = box.getBoundingClientRect();
+        if (r.bottom < -80 || r.top > window.innerHeight + 80) return;
+        var speed = parseFloat(img.getAttribute("data-parallax")) || 0.15;
+        var center = r.top + r.height / 2 - window.innerHeight / 2;
+        img.style.transform = "translateY(" + (center * speed).toFixed(1) + "px)";
+      });
+    };
+    var requestPlx = function () {
+      if (!plxTick) {
+        plxTick = true;
+        requestAnimationFrame(updateParallax);
+      }
+    };
+    window.addEventListener("scroll", requestPlx, { passive: true });
+    window.addEventListener("resize", requestPlx, { passive: true });
+    updateParallax();
+  }
+
   /* ---------- marquee: duplicate track content for seamless loop ---------- */
   document.querySelectorAll(".marquee-track").forEach(function (track) {
     track.innerHTML += track.innerHTML;
