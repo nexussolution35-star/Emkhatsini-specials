@@ -150,10 +150,10 @@
     var d = document.createElement("article");
     d.className = "store-card";
     var metaBits = "";
-    if (s.shop) metaBits += "<span>📍 Shop " + s.shop + (s.entrance ? " · Entrance " + s.entrance : "") + "</span>";
-    if (s.phone) metaBits += '<span>📞 <a href="tel:' + s.phone.replace(/[^0-9+]/g, "") + '">' + s.phone + "</a></span>";
-    metaBits += "<span>🕗 " + s.hours + "</span>";
-    if (s.website) metaBits += '<span>🌐 <a href="' + s.website + '" target="_blank" rel="noopener">Visit website</a></span>';
+    if (s.shop) metaBits += '<span><strong>Shop ' + s.shop + "</strong>" + (s.entrance ? " · Entrance " + s.entrance : "") + "</span>";
+    if (s.phone) metaBits += '<span><a href="tel:' + s.phone.replace(/[^0-9+]/g, "") + '">' + s.phone + "</a></span>";
+    metaBits += "<span>" + s.hours + "</span>";
+    if (s.website) metaBits += '<span><a href="' + s.website + '" target="_blank" rel="noopener">Visit website →</a></span>';
     d.innerHTML =
       '<div class="store-logo"><img loading="lazy" src="' + s.logo + '" alt="' + s.name + ' logo"></div>' +
       "<h3>" + s.name + "</h3>" +

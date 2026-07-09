@@ -206,8 +206,8 @@ section{padding:96px 0}
           mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);}
 .marquee-track{display:flex;gap:64px;width:max-content;animation:marquee 38s linear infinite;align-items:center}
 .marquee:hover .marquee-track{animation-play-state:paused}
-.marquee-track img{height:52px;width:auto;object-fit:contain;filter:grayscale(1);opacity:.65;transition:filter .3s,opacity .3s,transform .3s}
-.marquee-track img:hover{filter:none;opacity:1;transform:scale(1.08)}
+.marquee-track img{height:56px;width:auto;object-fit:contain;transition:transform .3s}
+.marquee-track img:hover{transform:scale(1.1)}
 @keyframes marquee{to{transform:translateX(-50%)}}
 
 /* ---------- stats band ---------- */
@@ -265,6 +265,20 @@ section{padding:96px 0}
 }
 .cat-card:hover .cat-icon{background:var(--gold);color:var(--navy);transform:rotate(-6deg) scale(1.06)}
 .cat-icon svg{width:26px;height:26px}
+/* real brand-logo stack on category cards */
+.cat-logos{display:flex;margin-bottom:18px}
+.cat-logos span{
+  width:52px;height:52px;border-radius:50%;background:#fff;
+  border:1.5px solid var(--line);box-shadow:var(--shadow-sm);
+  display:flex;align-items:center;justify-content:center;overflow:hidden;
+  transition:transform .3s ease;
+}
+.cat-logos span + span{margin-left:-12px}
+.cat-logos img{width:38px;height:38px;object-fit:contain}
+.cat-card:hover .cat-logos span{border-color:#f2d9a4}
+.cat-card:hover .cat-logos span:nth-child(1){transform:translateY(-4px) rotate(-5deg)}
+.cat-card:hover .cat-logos span:nth-child(2){transform:translateY(-7px)}
+.cat-card:hover .cat-logos span:nth-child(3){transform:translateY(-4px) rotate(5deg)}
 .cat-card h3{font-size:18.5px;font-weight:700;margin-bottom:6px}
 .cat-card p{font-size:14px;color:var(--muted);margin:0}
 .cat-card .count{
@@ -308,7 +322,8 @@ section{padding:96px 0}
 .store-tags{display:flex;flex-wrap:wrap;gap:6px}
 .tag{font:600 11px/1 var(--font-display);letter-spacing:.05em;background:var(--gold-tint);color:#8a6100;border-radius:100px;padding:6px 11px}
 .tag.navy{background:#e8ecfb;color:var(--navy)}
-.store-meta{font-size:13.5px;color:var(--muted);display:grid;gap:5px;margin-top:auto}
+.store-meta{font-size:13.5px;color:var(--muted);display:grid;gap:6px;margin-top:auto;padding-top:12px;border-top:1px dashed var(--line)}
+.store-meta strong{color:var(--navy);font-weight:700}
 .store-meta a{color:var(--navy);font-weight:600}
 .store-meta a:hover{color:#8a6100}
 .no-results{
